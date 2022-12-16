@@ -1,9 +1,15 @@
 import React from 'react';
+import Link from 'next/link'
 
 const index = ({ users }) => {
     return (
         <div>
             <h1>This is users page: {users.length}</h1>
+            {
+                users.map(user => <p key={user.id}>
+                    {user.name} <Link href={`users/${user.id}`}>explore</Link>
+                </p>)
+            }
         </div>
     );
 };
